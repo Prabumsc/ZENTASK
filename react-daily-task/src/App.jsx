@@ -4,6 +4,7 @@ import { MovieList } from "./MovieList";
 import { Welcome } from "./Welcome";
 import { AddColor } from "./AddColor";
 import { Movie } from "./Movie";
+import { TicTacTeo } from './TicTacTeo';
 
 export default function App() {
   const names = ["sethupathy", "Gowtham", "Ajith", "abdula", "Arun"];
@@ -45,9 +46,9 @@ export default function App() {
       <Welcome name="Gowtham" />
       <Welcome name="Ajith" />
       {names.map(nm => <Welcome name={nm} />)} */}
-      <MovieList />
+      {/* <MovieList /> */}
       {/* <AddColor /> */}
-
+      <TicTacTeo />
 
     </div>
   );

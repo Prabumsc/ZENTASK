@@ -1,6 +1,13 @@
 import { useState } from "react";
 import Button from '@mui/material/Button';
 import { Counter } from "./Counter";
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import IconButton from '@mui/material/IconButton';
+import Card from '@mui/material/Card';
+import { CardActions, CardContent } from "@mui/material";
+
+
 
 export function Movie({ movie }) {
     const styles = {
@@ -17,20 +24,28 @@ export function Movie({ movie }) {
     //   "summary": "Members of a black ops team must track and eliminate a gang of masked murderers."
     // };
     return (
-        <div className='movie-container'>
+        <Card className='movie-container'>
             <div className="poster-container"><img className="movie-poster" src={movie.poster} alt="movie.poster" />
             </div>
+            <CardContent>
+                <div className='movie-flex'>
+                    <h2 className="movie-name"> {movie.name}<IconButton
+                        color="primary"
+                        onClick={() => setShow(!show)} aria-label="delete">
+                        {show ? < ExpandLessIcon /> : < ExpandMoreIcon />}
+                    </IconButton></h2>
+                    <p style={styles} className="movie-rating">⭐ {movie.rating}</p>
+                </div>
 
-            <div className='movie-flex'>
-                <h2 className="movie-name"> {movie.name}</h2>
-                <p style={styles} className="movie-rating">⭐ {movie.rating}</p>
-            </div>
-            <Button variant="contained" onClick={() => setShow(!show)}>Togglesummary</Button>
-            {/* <p style={summaryStyles} className="movie-summary"> {movie.summary}</p> */}
-            {show ? <p className="movie-summary"> {movie.summary}</p> : null}
+                {/* <Button variant="contained" onClick={() => setShow(!show)}>Togglesummary</Button> */}
+                {/* <p style={summaryStyles} className="movie-summary"> {movie.summary}</p> */}
+                {show ? <p className="movie-summary"> {movie.summary}</p> : null}
+            </CardContent>
+            <CardActions>
+                <Counter />
+            </CardActions>
 
-            <Counter />
-        </div>
+        </Card>
     );
 
 }
