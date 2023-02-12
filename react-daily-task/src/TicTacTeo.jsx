@@ -7,7 +7,7 @@ export function TicTacTeo() {
     const { width, height } = useWindowSize()
     const [board, setBoard] = useState([null, null, null, null, null, null, null, null, null]);
     const [isXTurn, setIsXTurn] = useState(true);
-    const handClick = (index) => {
+    const handleClick = (index) => {
         console.log(index);
         if (!winner && board[index] === null) {
             const boardCopy = [...board];
@@ -51,7 +51,7 @@ export function TicTacTeo() {
             /> : null}
             <h1> TicTacTeo Game</h1>
             <div className="borad">
-                {board.map((val, index) => (< GameBox val={val} onplayerClick={() => handClick(index)} />))}
+                {board.map((val, index) => (< GameBox val={val} onplayerClick={() => handleClick(index)} />))}
             </div>
             <Button onClick={restartGame} variant="contained" >Restart</Button>
             {winner ? <h1> The winner is : {winner}</h1> : null}
