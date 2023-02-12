@@ -65,5 +65,8 @@
     grid-template-columns: 1fr 1fr 1fr ;
     grid-template-columns: repeat(3,1fr);
     width: min-content;
-    margin: 0 auto;
+    margin: 16px auto;
+  }
+  .tic-tac-teo{
+    text-align: center;
   }
