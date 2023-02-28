@@ -45,7 +45,8 @@
     max-width:30px 0px ;
     margin:10px auto;
     margin-left:16px ;
-    
+    width:400px;
+  margin-left: auto;
   }
   .game-box{
     border: 1px solid  black;
@@ -70,4 +71,14 @@
   }
   .tic-tac-teo{
     text-align: center;
+  }
+  .not-found{
+    width: auto;
+    height:640px;
+  }
+  .movie-detail-container{
+    max-width: 750px;
+  }
+  body{
+    margin: 0px;
   }

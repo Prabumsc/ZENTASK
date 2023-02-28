@@ -6,10 +6,11 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
 import Card from '@mui/material/Card';
 import { CardActions, CardContent } from "@mui/material";
+import InfoIcon from '@mui/icons-material/Info';
+import { useNavigate } from "react-router-dom";
 
 
-
-export function Movie({ movie }) {
+export function Movie({ movie, id }) {
     const styles = {
         color: movie.rating > 8.5 ? "green" : "crimson",
     };
@@ -23,17 +24,25 @@ export function Movie({ movie }) {
     //   "rating": 8.4,
     //   "summary": "Members of a black ops team must track and eliminate a gang of masked murderers."
     // };
+    const navigate = useNavigate();
     return (
         <Card className='movie-container'>
             <div className="poster-container"><img className="movie-poster" src={movie.poster} alt="movie.poster" />
             </div>
             <CardContent>
                 <div className='movie-flex'>
-                    <h2 className="movie-name"> {movie.name}<IconButton
+                    <h2 className="movie-name"> {movie.name}
+                        <IconButton
+                            color="primary"
+                            onClick={() => setShow(!show)} aria-label="toggle summary">
+                            {show ? < ExpandLessIcon /> : < ExpandMoreIcon />}
+                        </IconButton></h2>
+                    <InfoIcon
+
                         color="primary"
-                        onClick={() => setShow(!show)} aria-label="delete">
-                        {show ? < ExpandLessIcon /> : < ExpandMoreIcon />}
-                    </IconButton></h2>
+                        onClick={() => navigate(`/movie/${id}`)} aria-label="move-detils">
+
+                    </InfoIcon>
                     <p style={styles} className="movie-rating">⭐ {movie.rating}</p>
                 </div>
 
